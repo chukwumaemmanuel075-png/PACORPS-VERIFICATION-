@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PACORPS Verification Portal</title>
+</head>
+<body style="font-family:Arial;background:#0b3d0b;color:white;text-align:center;padding:30px;">
+  <h1>PACORPS</h1>
+  <h2>Official Member Verification Portal</h2>
+
+  <input id="serviceNo" placeholder="Enter Service Number">
+  <button onclick="verify()">Verify</button>
+
+  <div id="result" style="margin-top:20px;"></div>
+
+  <script>
+    const members = {
+      "PAC-00124": {
+        name: "EKE-ANYA EMMANUEL CHUKWUMA",
+        rank: "Lieutenant",
+        unit: "IOC",
+        state: "Abia State Command"
+      }
+    };
+
+    function verify() {
+      const id = document.getElementById("serviceNo").value.toUpperCase();
+      const m = members[id];
+
+      document.getElementById("result").innerHTML = m
+        ? `<h3>✅ VERIFIED</h3>
+           <p>Name: ${m.name}</p>
+           <p>Rank: ${m.rank}</p>
+           <p>Unit: ${m.unit}</p>
+           <p>State: ${m.state}</p>`
+        : "<h3>❌ Service Number Not Found</h3>";
+    }
+  </script>
+</body>
+</html>
